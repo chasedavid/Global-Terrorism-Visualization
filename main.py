@@ -10,7 +10,7 @@ import os
 import seaborn
 import pandas as pd
 import matplotlib.pyplot as plt
-from techline import techline, histo, attack_type, cntry_year, year_gang
+from techline import techline, histo, attack_type, cntry_year
 
 # File to Load
 file_to_load = "Resources/globalterrorism.csv"
@@ -35,7 +35,7 @@ terror_data_year.head()
 tech_data=techline()
 
 f=histo(terror_data, tech_data)
-plt.show()
+f.show()
 plt.savefig("tech_histo.png")
 
 f=attack_type(terror_data)
@@ -46,7 +46,4 @@ f=cntry_year(terror_data)
 f.show()
 plt.savefig("country_year.png")
 
-f=year_gang(terror_data)
-f.show()
-plt.savefig("year_gang.png")
 

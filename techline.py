@@ -67,7 +67,7 @@ def histo(terror_data, tech_data):
     plt.figtext(.5, 1,"Red-Social advance, Lt Blue-Finance advance, Black-Mobile & IPhone", wrap=True,
                 horizontalalignment='center', fontsize=10, bbox=props)
 
-    plt.show()
+    return(fig)
 
 def attack_type(terror_data):    
     #Create Violin plot
@@ -76,9 +76,7 @@ def attack_type(terror_data):
     f, ax = plt.subplots(figsize=(8, 8))
 
     sns.violinplot(x=terror_data["iyear"], y=terror_data['attacktype1_txt'], data=terror_data)
-    #               palette={"male": "b", "female": "y"})
-    #sns.violinplot(x=terror_data["iyear"], y=terror_data['attacktype1_txt'], hue="sex", data=df,
-    #               palette={"male": "b", "female": "y"})
+
 
     sns.despine(left=True)
 
@@ -90,37 +88,20 @@ def attack_type(terror_data):
 
 def cntry_year(terror_data):    
     #Create 2nd violin chart
+
     sns.set(style="whitegrid", palette="pastel", color_codes=True)
 
-    f, ax = plt.subplots(figsize=(8, 8))
+    f, ax = plt.subplots(figsize=(20, 20))
 
-    sns.violinplot(x=terror_data["iyear"], y=terror_data['country_txt'], data=terror_data)
-    #               palette={"male": "b", "female": "y"})
-    #sns.violinplot(x=terror_data["iyear"], y=terror_data['attacktype1_txt'], hue="sex", data=df,
-    #               palette={"male": "b", "female": "y"})
+    sns.violinplot(x=terror_data["iyear"], y=terror_data['region_txt'], data=terror_data)
+
 
     sns.despine(left=True)
 
-    f.suptitle('Terror event by Country', fontsize=18, fontweight='bold')
+    f.suptitle('Terror event by Region', fontsize=18, fontweight='bold')
     ax.set_xlabel("Year",size = 16,alpha=0.7)
-    ax.set_ylabel("Country",size = 16,alpha=0.7)
+    ax.set_ylabel("Region",size = 16,alpha=0.7)
+    #plt.legend(loc='upper left')
     return(f)
 
 
-def year_gang(terror_data):    
-    #Event year by gname
-    sns.set(style="whitegrid", palette="pastel", color_codes=True)
-
-    f, ax = plt.subplots(figsize=(8, 8))
-
-    sns.violinplot(x=terror_data["iyear"], y=terror_data['gname'], data=terror_data)
-    #               palette={"male": "b", "female": "y"})
-    #sns.violinplot(x=terror_data["iyear"], y=terror_data['attacktype1_txt'], hue="sex", data=df,
-    #               palette={"male": "b", "female": "y"})
-
-    sns.despine(left=True)
-
-    f.suptitle('Event Year by gname', fontsize=18, fontweight='bold')
-    ax.set_xlabel("Year",size = 16,alpha=0.7)
-    ax.set_ylabel("gname",size = 16,alpha=0.7)
-    return(f)
