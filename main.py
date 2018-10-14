@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[10]:
+# In[3]:
 
 
 # First we'll import the os module
@@ -15,6 +15,8 @@ from config import gkey
 from techline import techline, histo, attack_type, cntry_year
 from Kyle1 import terrorism_frequency, terrorism_fatalities, heat_map, group_data
 from g_terror import MajorEvents, FatalitiesbyAttack
+from happinessIndex import event_kills, graph_agro, graph_happy_terror, pull_year_attack_data, pull_format_data
+
 
 gmaps.configure(api_key=gkey)
 
@@ -26,7 +28,7 @@ terror_data = pd.read_csv(file_to_load, encoding = "ISO-8859-1", low_memory=Fals
 terror_data.head()
 
 
-# In[11]:
+# In[4]:
 
 
 tech_data=techline()
@@ -97,4 +99,17 @@ plt.savefig('MajorEventsOverTime.png')
 f=FatalitiesbyAttack(terror_data)
 f.show
 plt.savefig("Fatalities by Attack Type.png")
+
+
+# In[ ]:
+
+
+graph_happy_terror(terror_data, 2017)
+
+
+# In[ ]:
+
+
+events_fatalities_df = event_kills(terror_data)
+
 
